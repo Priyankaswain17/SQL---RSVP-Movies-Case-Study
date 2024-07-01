@@ -395,10 +395,11 @@ WITH movies_votes AS
 			JOIN ratings r
 				ON m.id = r.movie_id
 )
-SELECT *, CASE
-         WHEN german_movies_votes > italian_movies_votes THEN 'Yes'
-         ELSE 'No'
-       END AS German_Movie_Is_Popular_Than_Italian_Movie
+SELECT	*,
+	CASE
+	   WHEN german_movies_votes > italian_movies_votes THEN 'Yes'
+           ELSE 'No'
+        END AS German_Movie_Is_Popular_Than_Italian_Movie
 FROM   movies_votes;
 
 
@@ -425,11 +426,11 @@ Let’s begin by searching for null values in the tables.*/
 -- Type your code below:
 
 SELECT
-		SUM(CASE WHEN id IS NULL THEN 1 ELSE 0 END) AS id_nulls,
+	SUM(CASE WHEN id IS NULL THEN 1 ELSE 0 END) AS id_nulls,
         SUM(CASE WHEN name IS NULL THEN 1 ELSE 0 END) AS name_nulls,
         SUM(CASE WHEN height IS NULL THEN 1 ELSE 0 END) AS height_nulls,
         SUM(CASE WHEN date_of_birth IS NULL THEN 1 ELSE 0 END) AS date_of_birth_nulls,
-		SUM(CASE WHEN known_for_movies IS NULL THEN 1 ELSE 0 END) AS known_for_movies_nulls
+	SUM(CASE WHEN known_for_movies IS NULL THEN 1 ELSE 0 END) AS known_for_movies_nulls
 FROM	NAMES;
 
 
